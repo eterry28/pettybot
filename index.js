@@ -168,7 +168,7 @@ async function checkMentions() {
       // Skip if notification is older than 10 minutes (avoid processing old mentions on startup)
       const notifTime = new Date(notif.indexedAt);
       const tenMinutesAgo = new Date(Date.now() - 10 * 60 * 1000);
-      if (notifTime < tenMinutesAgo && processedMentions.size === 0) {
+      if (notifTime < tenMinutesAgo) {
         processedMentions.add(notif.uri);
         continue;
       }
